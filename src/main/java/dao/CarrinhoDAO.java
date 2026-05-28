@@ -1,14 +1,14 @@
+// dao/CarrinhoDAO.java
 package dao;
 
 import model.Carrinho;
+
 import java.sql.*;
 
-
-public class CarrinhoDao {
+public class CarrinhoDAO {
 
     private Carrinho map(ResultSet rs) throws SQLException {
         Carrinho c = new Carrinho();
-
         c.setId(rs.getInt("id"));
         c.setClienteId(rs.getInt("cliente_id"));
         c.setValorTotal(rs.getDouble("valor_total"));

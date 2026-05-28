@@ -1,10 +1,12 @@
+// dao/PagamentoDAO.java
 package dao;
-
-import java.sql.*;
 
 import model.Pagamento;
 
+import java.sql.*;
+
 public class PagamentoDAO {
+
     private Pagamento map(ResultSet rs) throws SQLException {
         Pagamento p = new Pagamento();
         p.setId(rs.getInt("id"));

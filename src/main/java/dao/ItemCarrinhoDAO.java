@@ -1,10 +1,11 @@
+// dao/ItemCarrinhoDAO.java
 package dao;
+
+import model.ItemCarrinho;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
-import model.ItemCarrinho;
 
 public class ItemCarrinhoDAO {
 

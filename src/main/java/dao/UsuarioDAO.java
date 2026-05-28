@@ -1,10 +1,12 @@
+// dao/UsuarioDAO.java
 package dao;
-
-import java.sql.*;
 
 import model.Usuario;
 
+import java.sql.*;
+
 public class UsuarioDAO {
+
     private Usuario map(ResultSet rs) throws SQLException {
         Usuario u = new Usuario();
         u.setId(rs.getInt("id"));
@@ -13,7 +15,6 @@ public class UsuarioDAO {
         u.setTelefone(rs.getString("telefone"));
         u.setEmail(rs.getString("email"));
         u.setSenha(rs.getString("senha"));
-        u.setDtCadastro(rs.getDate("dt_cadastro"));
         u.setAtivo(rs.getBoolean("ativo"));
         u.setTipo(rs.getString("tipo"));
         return u;

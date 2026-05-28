@@ -1,8 +1,9 @@
+// dao/EnderecoDAO.java
 package dao;
 
-import java.sql.*;
-
 import model.Endereco;
+
+import java.sql.*;
 
 public class EnderecoDAO {
 
@@ -11,7 +12,7 @@ public class EnderecoDAO {
         e.setId(rs.getInt("id"));
         e.setClienteId(rs.getInt("cliente_id"));
         e.setLogradouro(rs.getString("logradouro"));
-        e.setNumero(rs.getString("numero"));
+        e.setNumero(rs.getInt("numero"));
         e.setComplemento(rs.getString("complemento"));
         e.setBairro(rs.getString("bairro"));
         e.setCidade(rs.getString("cidade"));
@@ -30,7 +31,7 @@ public class EnderecoDAO {
 
             stmt.setInt(1, e.getClienteId());
             stmt.setString(2, e.getLogradouro());
-            stmt.setString(3, e.getNumero());
+            stmt.setInt(3, e.getNumero());
             stmt.setString(4, e.getComplemento());
             stmt.setString(5, e.getBairro());
             stmt.setString(6, e.getCidade());
@@ -72,8 +73,8 @@ public class EnderecoDAO {
         try (Connection conn = ConexaoDB.getConexao();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            stmt.setString(2, e.getLogradouro());
-            stmt.setString(3, e.getNumero());
+            stmt.setString(1, e.getLogradouro());
+            stmt.setInt(2, e.getNumero());
             stmt.setString(3, e.getComplemento());
             stmt.setString(4, e.getBairro());
             stmt.setString(5, e.getCidade());

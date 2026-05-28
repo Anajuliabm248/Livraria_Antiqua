@@ -1,12 +1,14 @@
+// dao/ItemVendaDAO.java
 package dao;
+
+import model.ItemVenda;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.ItemVenda;
-
 public class ItemVendaDAO {
+
     private ItemVenda map(ResultSet rs) throws SQLException {
         ItemVenda item = new ItemVenda();
         item.setId(rs.getInt("id"));

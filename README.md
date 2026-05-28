@@ -1,7 +1,6 @@
 # Trabalho Final POOWI
 ##### Ana Julia Bock Medina
 
----
 ## Descrição
 Projeto de 'pseudo' sistema de compras, gestão de vendas e controle de estoque de uma pequena livraria.
 #### Funções:
@@ -18,11 +17,11 @@ Projeto de 'pseudo' sistema de compras, gestão de vendas e controle de estoque 
 - Maven (gerenciamento de dependências)
 - banco de dados PostgreSQL
 - HTML, CSS, JS e BootsStrap (front-end)
----
+
 ## Instalação e uso
 
 
----
+
 ## Protótipo e Diagrama
 Encontrados em:
 ```

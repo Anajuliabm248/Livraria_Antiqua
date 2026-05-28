@@ -1,10 +1,11 @@
+// dao/VendaDAO.java
 package dao;
+
+import model.Venda;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
-import model.Venda;
 
 public class VendaDAO {
 

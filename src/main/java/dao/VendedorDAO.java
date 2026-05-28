@@ -1,10 +1,11 @@
+// dao/VendedorDAO.java
 package dao;
+
+import model.Vendedor;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
-import model.Vendedor;
 
 public class VendedorDAO {
 
@@ -16,7 +17,6 @@ public class VendedorDAO {
         v.setTelefone(rs.getString("telefone"));
         v.setEmail(rs.getString("email"));
         v.setSenha(rs.getString("senha"));
-        v.setDtCadastro(rs.getDate("dt_cadastro"));
         v.setAtivo(rs.getBoolean("ativo"));
         return v;
     }

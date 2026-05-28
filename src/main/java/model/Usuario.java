@@ -8,7 +8,6 @@ public class Usuario {
     private String telefone;
     private String email;
     private String senha;
-    private LocalDate dtCadastro;
     private boolean ativo;
     private String tipo;
 
@@ -78,18 +77,6 @@ public class Usuario {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public LocalDate getDtCadastro() {
-        return dtCadastro;
-    }
-
-    public void setDtCadastro(LocalDate dtCadastro) {
-        this.dtCadastro = dtCadastro;
-    }
-
-    public void setDtCadastro(java.sql.Date dtCadastro) {
-        this.dtCadastro = dtCadastro != null ? dtCadastro.toLocalDate() : null;
     }
 
     public boolean isAtivo() {

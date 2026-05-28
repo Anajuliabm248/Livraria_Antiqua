@@ -1,0 +1,41 @@
+<!-- templates/venda/historico.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Meus Pedidos</title></head>
+<body>
+
+<div th:replace="fragments/navbar :: navbar"></div>
+
+<h1>Meus Pedidos</h1>
+
+<p th:if="${vendas.isEmpty()}">Você ainda não fez nenhum pedido.</p>
+
+<table th:unless="${vendas.isEmpty()}">
+    <thead>
+    <tr>
+        <th>Pedido</th>
+        <th>Data</th>
+        <th>Total</th>
+        <th>Status</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="venda : ${vendas}">
+        <td th:text="${'#' + venda.id}"></td>
+        <td th:text="${venda.dtVenda}"></td>
+        <td th:text="${'R$ ' + venda.valorTotal}"></td>
+        <td th:text="${venda.status}"></td>
+        <td>
+            <form th:if="${venda.status == 'CONCLUIDA'}"
+                  method="post"
+                  th:action="@{/venda/{id}/cancelar(id=${venda.id})}">
+                <button type="submit">Cancelar</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

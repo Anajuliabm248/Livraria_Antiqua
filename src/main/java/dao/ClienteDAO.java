@@ -1,12 +1,14 @@
+// dao/ClienteDAO.java
 package dao;
+
+import model.Cliente;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.Cliente;
-
 public class ClienteDAO {
+
     // JOIN das duas tabelas para montar o objeto completo
     private Cliente map(ResultSet rs) throws SQLException {
         Cliente c = new Cliente();
@@ -16,7 +18,6 @@ public class ClienteDAO {
         c.setTelefone(rs.getString("telefone"));
         c.setEmail(rs.getString("email"));
         c.setSenha(rs.getString("senha"));
-        c.setDtCadastro(rs.getDate("dt_cadastro"));
         c.setAtivo(rs.getBoolean("ativo"));
         return c;
     }

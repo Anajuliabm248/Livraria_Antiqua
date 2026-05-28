@@ -1,0 +1,46 @@
+<!-- templates/carrinho/index.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Carrinho</title></head>
+<body>
+
+<div th:replace="fragments/navbar :: navbar"></div>
+
+<h1>Meu Carrinho</h1>
+
+<div th:if="${itens.isEmpty()}">
+    <p>Seu carrinho está vazio.</p>
+    <a href="/livros">Ver livros</a>
+</div>
+
+<table th:unless="${itens.isEmpty()}">
+    <thead>
+    <tr>
+        <th>Livro</th>
+        <th>Quantidade</th>
+        <th>Subtotal</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="item, stat : ${itens}">
+        <td th:text="${livros[stat.index].nome}"></td>
+        <td th:text="${item.quantidade}"></td>
+        <td th:text="${'R$ ' + item.subtotal}"></td>
+        <td>
+            <form method="post"
+                  th:action="@{/carrinho/remover/{id}(id=${item.id})}">
+                <button type="submit">Remover</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<p th:unless="${itens.isEmpty()}"
+   th:text="${'Total: R$ ' + carrinho.valorTotal}"></p>
+
+<a th:unless="${itens.isEmpty()}" href="/venda/checkout">Finalizar Compra</a>
+
+</body>
+</html>
