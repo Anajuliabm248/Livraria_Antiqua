@@ -1,4 +1,3 @@
-// dao/CategoriaDAO.java
 package dao;
 
 import model.Categoria;
@@ -17,13 +16,12 @@ public class CategoriaDAO {
     }
 
     public boolean inserir(Categoria c) {
-        String sql = "INSERT INTO categoria (nome, descricao) VALUES (?, ?)";
+        String sql = "INSERT INTO categoria (nome) VALUES (?)";
 
         try (Connection conn = ConexaoDB.getConexao();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setString(1, c.getNome());
-
             return stmt.executeUpdate() > 0;
 
         } catch (SQLException e) {

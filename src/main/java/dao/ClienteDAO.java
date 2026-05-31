@@ -1,4 +1,3 @@
-// dao/ClienteDAO.java
 package dao;
 
 import model.Cliente;
@@ -9,7 +8,6 @@ import java.util.List;
 
 public class ClienteDAO {
 
-    // JOIN das duas tabelas para montar o objeto completo
     private Cliente map(ResultSet rs) throws SQLException {
         Cliente c = new Cliente();
         c.setId(rs.getInt("id"));
@@ -24,8 +22,8 @@ public class ClienteDAO {
 
     // Insere em usuario e cliente dentro de uma transação
     public boolean inserir(Cliente c) {
-        String sqlUsuario = "INSERT INTO usuario (nome, cpf, telefone, email, senha, dt_cadastro, ativo, tipo) "
-                + "VALUES (?, ?, ?, ?, ?, CURRENT_DATE, true, 'CLIENTE')";
+        String sqlUsuario = "INSERT INTO usuario (nome, cpf, telefone, email, senha, ativo, tipo) "
+                + "VALUES (?, ?, ?, ?, ?, true, 'CLIENTE')";
         String sqlCliente = "INSERT INTO cliente (id) VALUES (?)";
 
         try (Connection conn = ConexaoDB.getConexao()) {
@@ -149,7 +147,6 @@ public class ClienteDAO {
     }
 
     public void excluir(int id) {
-        // Excluir usuario já cascateia para cliente pelo ON DELETE CASCADE
         String sql = "DELETE FROM usuario WHERE id = ?";
 
         try (Connection conn = ConexaoDB.getConexao();

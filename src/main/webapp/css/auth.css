@@ -1,0 +1,127 @@
+.auth-shell {
+    min-height: calc(100vh - 74px);
+    display: grid;
+    place-items: center;
+    padding: 32px 0 48px;
+}
+
+.auth-card {
+    width: min(980px, calc(100% - 24px));
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    overflow: hidden;
+    border-radius: 28px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    background: rgba(255, 250, 242, 0.96);
+}
+
+.auth-card-full {
+    grid-template-columns: 1fr;
+}
+
+.auth-hero {
+    background:
+        linear-gradient(140deg, rgba(59,45,42,.96), rgba(59,45,42,.76)),
+        radial-gradient(circle at top right, rgba(31,139,103,.25), transparent 32%);
+    padding: 30px;
+    color: #f8efe3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100%;
+}
+
+.auth-hero .brand-name {
+    color: #fff4e3;
+    font-size: 1.7rem;
+}
+
+.auth-hero__mark {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.auth-hero__mark img {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+}
+
+.auth-hero h1 {
+    color: #fff4e3;
+    font-size: clamp(2rem, 2.6vw, 3rem);
+    margin: 18px 0 12px;
+    line-height: 1.04;
+}
+
+.auth-hero p {
+    max-width: 30ch;
+    color: rgba(248,239,227,.82);
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.65;
+}
+
+.auth-hero .auth-quote {
+    margin-top: auto;
+    padding-top: 26px;
+    border-top: 1px solid rgba(255,255,255,.12);
+}
+
+.auth-hero .auth-quote small {
+    color: rgba(248,239,227,.7);
+}
+
+.auth-form {
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.auth-form h2 {
+    margin: 0 0 8px;
+    font-size: 2rem;
+}
+
+.auth-form .lead {
+    color: var(--muted);
+    margin-bottom: 22px;
+}
+
+.auth-form .form-control,
+.auth-form .form-select {
+    min-height: 52px;
+}
+
+.auth-form .btn-brand {
+    width: 100%;
+    margin-top: 8px;
+    justify-content: center;
+}
+
+.auth-form .auth-foot {
+    margin-top: 16px;
+    text-align: center;
+}
+
+.auth-alert {
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,.65);
+    color: var(--surface-dark);
+    padding: 12px 14px;
+    margin-bottom: 12px;
+}
+
+@media (max-width: 900px) {
+    .auth-card {
+        grid-template-columns: 1fr;
+    }
+
+    .auth-hero {
+        min-height: auto;
+    }
+}

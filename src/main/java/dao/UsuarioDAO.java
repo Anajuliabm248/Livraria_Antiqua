@@ -1,4 +1,3 @@
-// dao/UsuarioDAO.java
 package dao;
 
 import model.Usuario;

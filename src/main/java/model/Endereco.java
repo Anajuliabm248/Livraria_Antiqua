@@ -7,7 +7,7 @@ public class Endereco {
     private String complemento;
     private String bairro;
     private String pais;
-    private String numero;
+    private int numero;
     private String cidade;
     private String estado;
     private String cep;
@@ -15,18 +15,7 @@ public class Endereco {
     public Endereco() {
     }
 
-    public Endereco(String logradouro, String complemento, String bairro, String pais, String numero, String cidade, String estado, String cep) {
-        this.logradouro = logradouro;
-        this.complemento = complemento;
-        this.bairro = bairro;
-        this.pais = pais;
-        this.numero = numero;
-        this.cidade = cidade;
-        this.estado = estado;
-        this.cep = cep;
-    }
-
-    public Endereco(int id, String logradouro, String complemento, String bairro, String pais, String numero, String cidade, String estado, String cep) {
+    public Endereco(int id, String logradouro, String complemento, String bairro, String pais, int numero, String cidade, String estado, String cep) {
         this.id = id;
         this.logradouro = logradouro;
         this.complemento = complemento;

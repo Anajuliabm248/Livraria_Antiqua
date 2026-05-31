@@ -1,4 +1,3 @@
-// service/VendedorService.java
 package service;
 
 import dao.VendedorDAO;

@@ -1,4 +1,3 @@
-// dao/VendedorDAO.java
 package dao;
 
 import model.Vendedor;
@@ -22,8 +21,8 @@ public class VendedorDAO {
     }
 
     public boolean inserir(Vendedor v) {
-        String sqlUsuario = "INSERT INTO usuario (nome, cpf, telefone, email, senha, dt_cadastro, ativo, tipo) "
-                + "VALUES (?, ?, ?, ?, ?, CURRENT_DATE, true, 'VENDEDOR')";
+        String sqlUsuario = "INSERT INTO usuario (nome, cpf, telefone, email, senha, ativo, tipo) "
+                + "VALUES (?, ?, ?, ?, ?, true, 'VENDEDOR')";
         String sqlVendedor = "INSERT INTO vendedor (id) VALUES (?)";
 
         try (Connection conn = ConexaoDB.getConexao()) {

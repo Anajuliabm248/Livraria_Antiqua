@@ -1,4 +1,3 @@
-// service/CarrinhoService.java
 package service;
 
 import dao.CarrinhoDAO;

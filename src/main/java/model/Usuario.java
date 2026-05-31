@@ -1,5 +1,4 @@
 package model;
-import java.time.LocalDate;
 
 public class Usuario {
     private int id;

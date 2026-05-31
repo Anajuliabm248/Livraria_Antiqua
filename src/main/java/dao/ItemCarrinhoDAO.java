@@ -1,4 +1,3 @@
-// dao/ItemCarrinhoDAO.java
 package dao;
 
 import model.ItemCarrinho;

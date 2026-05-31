@@ -1,4 +1,3 @@
-// dao/ItemVendaDAO.java
 package dao;
 
 import model.ItemVenda;

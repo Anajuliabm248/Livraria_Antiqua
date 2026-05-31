@@ -1,4 +1,3 @@
-// service/LivroService.java
 package service;
 
 import dao.LivroDAO;
@@ -10,8 +9,14 @@ public class LivroService {
 
     private final LivroDAO livroDAO = new LivroDAO();
 
+    // Catálogo público (clientes veem todos)
     public List<Livro> listar() {
         return livroDAO.listar();
+    }
+
+    // Estoque privado (vendedor vê só os seus)
+    public List<Livro> listarPorVendedor(int vendedorId) {
+        return livroDAO.listarPorVendedor(vendedorId);
     }
 
     public Livro buscarPorId(int id) {
@@ -34,8 +39,9 @@ public class LivroService {
         livroDAO.atualizar(livro);
     }
 
-    public void excluir(int id) {
-        livroDAO.excluir(id);
+    // Retorna false se o livro não pertencer ao vendedor
+    public boolean excluir(int livroId, int vendedorId) {
+        return livroDAO.excluir(livroId, vendedorId);
     }
 
     public void atualizarEstoque(int livroId, int quantidade) {

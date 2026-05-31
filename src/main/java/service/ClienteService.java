@@ -1,4 +1,3 @@
-// service/ClienteService.java
 package service;
 
 import dao.CarrinhoDAO;
@@ -23,7 +22,6 @@ public class ClienteService {
         boolean inserido = clienteDAO.inserir(cliente);
 
         if (inserido) {
-            // Cria o carrinho vazio junto com o cliente
             Carrinho carrinho = new Carrinho();
             carrinho.setClienteId(cliente.getId());
             carrinhoDAO.inserir(carrinho);

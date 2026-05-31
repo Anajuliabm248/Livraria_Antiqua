@@ -1,4 +1,3 @@
-// dao/PagamentoDAO.java
 package dao;
 
 import model.Pagamento;

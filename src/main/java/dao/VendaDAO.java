@@ -1,4 +1,3 @@
-// dao/VendaDAO.java
 package dao;
 
 import model.Venda;
@@ -31,14 +30,11 @@ public class VendaDAO {
             stmt.executeUpdate();
 
             ResultSet keys = stmt.getGeneratedKeys();
-            if (keys.next()) {
-                return keys.getInt(1);
-            }
+            if (keys.next()) return keys.getInt(1);
 
         } catch (SQLException e) {
             throw new RuntimeException("Erro ao inserir venda", e);
         }
-
         return -1;
     }
 
@@ -50,15 +46,11 @@ public class VendaDAO {
 
             stmt.setInt(1, id);
             ResultSet rs = stmt.executeQuery();
-
-            if (rs.next()) {
-                return map(rs);
-            }
+            if (rs.next()) return map(rs);
 
         } catch (SQLException e) {
             throw new RuntimeException("Erro ao buscar venda", e);
         }
-
         return null;
     }
 
@@ -71,15 +63,36 @@ public class VendaDAO {
 
             stmt.setInt(1, clienteId);
             ResultSet rs = stmt.executeQuery();
-
-            while (rs.next()) {
-                lista.add(map(rs));
-            }
+            while (rs.next()) lista.add(map(rs));
 
         } catch (SQLException e) {
             throw new RuntimeException("Erro ao listar vendas do cliente", e);
         }
+        return lista;
+    }
 
+    /**
+     * Retorna as vendas que contêm pelo menos um livro deste vendedor.
+     * Usa DISTINCT para não duplicar a venda quando ela tiver vários itens do mesmo vendedor.
+     */
+    public List<Venda> listarPorVendedor(int vendedorId) {
+        String sql = "SELECT DISTINCT v.* FROM venda v "
+                + "INNER JOIN item_venda iv ON iv.venda_id = v.id "
+                + "INNER JOIN livro l ON l.id = iv.livro_id "
+                + "WHERE l.vendedor_id = ? "
+                + "ORDER BY v.dt_venda DESC";
+        List<Venda> lista = new ArrayList<>();
+
+        try (Connection conn = ConexaoDB.getConexao();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, vendedorId);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) lista.add(map(rs));
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Erro ao listar vendas do vendedor", e);
+        }
         return lista;
     }
 
@@ -91,14 +104,11 @@ public class VendaDAO {
              PreparedStatement stmt = conn.prepareStatement(sql);
              ResultSet rs = stmt.executeQuery()) {
 
-            while (rs.next()) {
-                lista.add(map(rs));
-            }
+            while (rs.next()) lista.add(map(rs));
 
         } catch (SQLException e) {
             throw new RuntimeException("Erro ao listar todas as vendas", e);
         }
-
         return lista;
     }
 

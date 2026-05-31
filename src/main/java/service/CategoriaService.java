@@ -1,4 +1,3 @@
-// service/CategoriaService.java
 package service;
 
 import dao.CategoriaDAO;

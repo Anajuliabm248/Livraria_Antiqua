@@ -1,4 +1,3 @@
-// dao/EnderecoDAO.java
 package dao;
 
 import model.Endereco;
