@@ -1,3 +1,6 @@
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page isELIgnored="false" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 
 <nav class="navbar site-navbar navbar-light">
   <div class="container-fluid px-3 px-xl-4">
