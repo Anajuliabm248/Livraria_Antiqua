@@ -63,7 +63,7 @@
 
             <section class="form-card surface">
                 <div class="form-section">
-                    <div class="row g-3">
+                    <div class="row g-2">
                         <div class="col-12">
                             <label for="nome" class="field-label">Nome do livro*</label>
                             <input type="text" class="form-control field-input" id="nome" name="nome" value="${livro.nome}" required>
@@ -89,7 +89,7 @@
                 </div>
 
                 <div class="form-section">
-                    <div class="row g-3">
+                    <div class="row g-2">
                         <div class="col-md-3">
                             <label for="numPagina" class="field-label">Número de páginas*</label>
                             <input type="number" class="form-control field-input" id="numPagina" name="numPagina" value="${livro.numPagina}" min="1" required>
@@ -113,7 +113,7 @@
                 </div>
 
                 <div class="form-section">
-                    <div class="row g-3">
+                    <div class="row g-2">
                         <div class="col-md-6">
                             <label for="preco" class="field-label">Preço (R$)*</label>
                             <input type="number" class="form-control field-input" id="preco" step="0.01" min="0" name="preco" value="${livro.preco}" required>
