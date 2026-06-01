@@ -47,14 +47,21 @@ Projeto de 'pseudo' sistema de compras, gestão de vendas e controle de estoque 
 
 ## Instalação e uso
 1. fazer o download e extração do projeto
-2. em current file adicionar o jboss
-3. iniciar o projeto em run
+2. no PgAdmin importar o banco de dados (como encontrar abaixo)
+3. abrir o projeto no Intellij
+5. adicionar o jboss no current files
+6. fazer o run do projeto
+7. no navegador fazer o cadastro, login e utilizar o sistema
 
-## Protótipo e Diagrama
+## Protótipo e Diagrama e Banco de dados
 Encontrados em:
 ```
 trabalho_final/
-└── Diagrama_Prototipo/
-    ├── Diagrama
-    └── Prototipo.pdf
+└── utils/
+    ├── BD/
+    |    └── banco_de_dados.sql
+    ├── diagrama/
+    |    └── diagrama_er.png
+    └── prototipo/
+         └── <arquivos png do prótipo>
 ```
