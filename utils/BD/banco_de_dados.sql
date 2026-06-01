@@ -993,3 +993,4 @@ ALTER TABLE ONLY public.vendedor
 --
 
 
+
