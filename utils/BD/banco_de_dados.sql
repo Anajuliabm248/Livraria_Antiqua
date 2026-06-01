@@ -2,7 +2,6 @@
 -- PostgreSQL database dump
 --
 
-\restrict j5INJkDOzYFeaEFowcbdYTsGhQwyu5hIEjpqSL0Yfpq6TCyTwui9OOnrIvnfCsd
 
 -- Dumped from database version 18.3
 -- Dumped by pg_dump version 18.1
@@ -12,7 +11,6 @@
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET idle_in_transaction_session_timeout = 0;
-SET transaction_timeout = 0;
 SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SELECT pg_catalog.set_config('search_path', '', false);
@@ -26,7 +24,7 @@ SET row_security = off;
 -- Name: public; Type: SCHEMA; Schema: -; Owner: pg_database_owner
 --
 
-CREATE SCHEMA public;
+CREATE SCHEMA IF NOT EXISTS public;
 
 
 ALTER SCHEMA public OWNER TO pg_database_owner;
@@ -573,7 +571,7 @@ INSERT INTO public.categoria VALUES (21, 'Policial');
 
 INSERT INTO public.livro VALUES (4, 1, 'Orgulho e Preconceito', 'Jane Austen ', '978-8573263350', 'rude e presunçoso. Após descobrir o envolvimento do detestável cavalheiro nos eventos que separaram sua querida irmã, Jane, e o jovem Bingley, Elizabeth está determinada a odiá-lo ainda mais. Mas uma surpreendente reviravolta poderá provar que as primeiras impressões nem sempre são incontestáveis.
 
-Clássico romântico, Orgulho e preconceito é uma sátira social da Inglaterra do século XIX. A escrita elegante e irônica de Jane Austen tece personagens cativantes e memoráveis que acompanham a história da impetuosa Elizabeth Bennet e sua família em sua busca por amor e realização.', 424, 1818, 33.50, 18, '1780251146483_orgulho_preconceito.jpg', 3);
+Clássico romântico, Orgulho e preconceito é uma sátira social da Inglaterra do século XIX. A escrita elegante e irônica de Jane Austen tece personagens cativantes e memoráveis que acompanham a história da impetuosa Elizabeth Bennet e sua família em sua busca por amor e realização.', 424, 1818, 33.50, 18, '1780251146483_orgulho_preconceito.jpg', 2);
 INSERT INTO public.livro VALUES (6, 1, 'Noites Brancas', 'Fiodor Dostoievski ', '978-6550970284', 'Noite branca é um fenômeno comum na Rússia, em especial em São Petersburgo, em que o sol permanece um pouco abaixo da linha do horizonte ao se por, deixando a madrugada clara. É nesse cenário de atmosfera lírica que dois jovens sonhadores se conhecem em uma ponte. Ao longo de quatro noites, os dois combinam de se ver para falar sobre suas vidas e compartilhar sonhos, angústias e reflexões, até o desfecho inesperado ao final do quarto encontro.
 ', 80, 1848, 20.99, 17, '1780250934658_noites_brancas.jpg', 2);
 INSERT INTO public.livro VALUES (7, 3, 'A Morte de Ivan Ilich', 'Liev Tosltói', '978-8573263596', 'Ivan Ilitch acreditava ser um homem especial, não pensando no fim que todos terão igualmente um dia. Ele estava comprometido com a vida buscando ascensão profissional, status financeiro e o poder de um funcionário público do sistema judiciário da Rússia czarista.
@@ -994,5 +992,4 @@ ALTER TABLE ONLY public.vendedor
 -- PostgreSQL database dump complete
 --
 
-\unrestrict j5INJkDOzYFeaEFowcbdYTsGhQwyu5hIEjpqSL0Yfpq6TCyTwui9OOnrIvnfCsd
 
