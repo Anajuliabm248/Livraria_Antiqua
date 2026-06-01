@@ -47,8 +47,9 @@ Projeto de 'pseudo' sistema de compras, gestão de vendas e controle de estoque 
 
 ## Instalação e uso
 1. fazer o download e extração do projeto
-2. no PgAdmin importar o banco de dados (como encontrar abaixo)
-3. abrir o projeto no Intellij
+2. no PgAdmin criar um novo banco de dados chamado livraria_antiqua
+3. abrir o bando de dados (run query toll) e ir em abrir arquivo, lá abrir o banco_de_dados.sql (como encontrar abaixo) e executar o scrpit
+4. abrir o projeto no Intellij
 5. adicionar o jboss no current files
 6. fazer o run do projeto
 7. no navegador fazer o cadastro, login e utilizar o sistema
