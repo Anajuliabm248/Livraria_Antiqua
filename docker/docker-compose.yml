@@ -1,0 +1,37 @@
+services:
+  # Servidor de Banco de Dados (PostgreSQL)
+  db:
+    image: postgres:15-alpine
+    container_name: livraria_db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: livraria_antiqua
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  # Aplicação Web
+  web:
+    build: .
+    container_name: livraria_app
+    restart: always
+    ports:
+      - "8080:8080" # Expõe o serviço na porta 8080 do SO Host
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: livraria_antiqua
+      DB_USER: postgres
+      DB_PASS: 1234
+    volumes:
+      # Mapeia os logs do Tomcat para uma pasta local no seu SO Host
+      # Os logs aparecerão na pasta ./tomcat-logs do seu computador
+      - ./tomcat-logs:/usr/local/tomcat/logs
+
+volumes:
+  postgres_data:
