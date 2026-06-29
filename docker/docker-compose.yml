@@ -32,6 +32,7 @@ services:
       # Mapeia os logs do Tomcat para uma pasta local no seu SO Host
       # Os logs aparecerão na pasta ./tomcat-logs do seu computador
       - ./tomcat-logs:/usr/local/tomcat/logs
+      - ./script.sql:/docker-entrypoint-initdb.d/init.sql
 
 volumes:
   postgres_data:
