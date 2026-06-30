@@ -5,40 +5,56 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
 
 import java.io.*;
-import java.nio.file.*;
 
 @WebServlet("/uploads/*")
 public class UploadServlet extends HttpServlet {
 
+    private static final int BUFFER_SIZE = 4096;
+
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+    protected void doGet(HttpServletRequest request,
+                         HttpServletResponse response)
             throws ServletException, IOException {
 
-        // Mesmo caminho base usado no LivroServlet
-        String baseDir = System.getProperty("uploads.dir",
-                System.getProperty("user.home") + "/livraria-uploads");
+        String arquivo = request.getPathInfo();
 
-        // Extrai o nome do arquivo da URL: /uploads/123_capa.png → 123_capa.png
-        String pathInfo = req.getPathInfo();
-        if (pathInfo == null || pathInfo.equals("/")) {
-            resp.sendError(HttpServletResponse.SC_NOT_FOUND);
+        if (arquivo == null) {
+            response.sendError(HttpServletResponse.SC_NOT_FOUND);
             return;
         }
 
-        // Segurança: impede path traversal tipo /uploads/../../../etc/passwd
-        String nomeArquivo = new File(pathInfo).getName();
-        Path arquivo = Paths.get(baseDir, nomeArquivo);
+        File file = new File(
+                System.getProperty("user.dir")
+                        + File.separator
+                        + "uploads",
+                arquivo);
 
-        if (!Files.exists(arquivo)) {
-            resp.sendError(HttpServletResponse.SC_NOT_FOUND);
+        if (!file.exists()) {
+            response.sendError(HttpServletResponse.SC_NOT_FOUND);
             return;
         }
 
-        // Define o Content-Type baseado na extensão
-        String contentType = getServletContext().getMimeType(nomeArquivo);
-        resp.setContentType(contentType != null ? contentType : "application/octet-stream");
-        resp.setContentLengthLong(Files.size(arquivo));
+        String mime = getServletContext().getMimeType(file.getName());
 
-        Files.copy(arquivo, resp.getOutputStream());
+        if (mime == null) {
+            mime = "application/octet-stream";
+        }
+
+        response.setContentType(mime);
+        response.setContentLengthLong(file.length());
+
+        try (
+                FileInputStream in = new FileInputStream(file);
+                OutputStream out = response.getOutputStream()
+        ) {
+
+            byte[] buffer = new byte[BUFFER_SIZE];
+
+            int bytesRead;
+
+            while ((bytesRead = in.read(buffer)) != -1) {
+                out.write(buffer, 0, bytesRead);
+            }
+        }
     }
 }

@@ -112,10 +112,15 @@ public class LivroServlet extends HttpServlet {
         Part arquivo = req.getPart("imgCapa");
         String nomeArquivo = null;
 
-        String uploadPath = System.getProperty("uploads.dir",
-                System.getProperty("user.home") + "/livraria-uploads");
+        String uploadPath = System.getProperty("user.dir")
+                + File.separator
+                + "uploads";
+
         File pasta = new File(uploadPath);
-        if (!pasta.exists()) pasta.mkdirs();
+
+        if (!pasta.exists()) {
+            pasta.mkdirs();
+        }
 
         if (arquivo != null && arquivo.getSize() > 0) {
             String contentType = arquivo.getContentType();
