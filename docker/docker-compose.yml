@@ -12,6 +12,8 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+      # Aponta para a pasta do script.sql para iniciar o banco de dados e criar suas tabelas
+      - ./init-db:/docker-entrypoint-initdb.d
 
   # Aplicação Web
   web:
@@ -32,7 +34,6 @@ services:
       # Mapeia os logs do Tomcat para uma pasta local no seu SO Host
       # Os logs aparecerão na pasta ./tomcat-logs do seu computador
       - ./tomcat-logs:/usr/local/tomcat/logs
-      - ./script.sql:/docker-entrypoint-initdb.d/init.sql
 
 volumes:
   postgres_data:
