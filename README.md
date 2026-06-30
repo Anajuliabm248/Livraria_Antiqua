@@ -1,4 +1,4 @@
-# Trabalho prático de Sistemas para internet
+## Trabalho prático de Sistemas Operacionais
 
 ### Documentação de Implantação: Livraria Antiqua
 
@@ -21,21 +21,21 @@ docker/
 
 #### Como subir o sistema
  
-1. construir e iniciar os containers
+1. construir e iniciar os containers:
 ```
 docker compose up --build -d
 ```
-2. injetar o banco de dados
+2. injetar o banco de dados:
 ```
 docker cp .\init-db\script.sql livraria_db:/tmp/script.sql
 ```
-3. executar o script localmente de dentro do container
+3. executar o script localmente de dentro do container:
 ```
 docker exec -it livraria_db psql -U postgres -d livraria_antiqua -f /tmp/script.sql
 ```
 4. acessar a aplicação pelo navegador em: ´http://localhost:8080´
 5. logs da aplicação e banco de dados ficam salvos na pasta: ´tomcat-logs´
-6. Para desligar o ambiente
+6. Para desligar o ambiente:
 ```
 docker compose down
 ```
