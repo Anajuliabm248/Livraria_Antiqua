@@ -20,6 +20,8 @@ docker/
 ```
 
 #### Como subir o sistema
+##### Antes de tudo:
+fazer o download e extração do código e no terminal entrar na pasta docker.
  
 1. construir e iniciar os containers:
 ```
