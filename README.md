@@ -13,7 +13,7 @@ livraria_db (PostgreSQL): Container de banco de dados onde os dados da livraria 
 ```
 docker/
 ├── init-db/
-│   └── script.sql          # Script SQL gerado pelo pgAdmin (UTF-8)
+│   └── script.sql          # Script SQL gerado pelo pgAdmin (UTF-8) para a criação e inserção de dados do sistema
 ├── tomcat-logs/            # Pasta criada automaticamente (Logs do sistema)
 ├── Dockerfile              # Instruções de build da aplicação
 └── docker-compose.yml      # Gerenciador dos containers
@@ -27,7 +27,7 @@ fazer o download e extração do código e no terminal entrar na pasta docker.
 ```
 docker compose up --build -d
 ```
-2. injetar o banco de dados:
+2.  copia o arquivo script.sql da pasta init-db do sistema local para o diretório /tmp do contêiner livraria_db.:
 ```
 docker cp .\init-db\script.sql livraria_db:/tmp/script.sql
 ```
