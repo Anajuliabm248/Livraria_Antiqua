@@ -5,7 +5,7 @@ WORKDIR /app
 RUN git clone https://github.com/Anajuliabm248/Livraria_Antiqua.git .
 RUN mvn clean package -DskipTests
 
-# --- ETAPA 2: Produção (Servidor Tomcat 10 corrigido) ---
+# --- ETAPA 2: Produção (Servidor Tomcat 10) ---
 FROM tomcat:10.1-jdk17-temurin AS runner
 
 WORKDIR /usr/local/tomcat/webapps/
